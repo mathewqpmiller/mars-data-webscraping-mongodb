@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="BrandingImages/MongoDB_Readme_CoverImage2.png" alt="Project Cover" width="600" height="auto"/>
+  <img src="BrandingImages/MongoDB_Readme_CoverImage2.png" alt="Project Cover" width="800" height="auto"/>
 </p>
 
 

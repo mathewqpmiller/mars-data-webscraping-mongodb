@@ -1,6 +1,6 @@
 
 <p align="center">
-  <img src="BrandingImages/MongDB_Readme_CoverImage2.png" alt="Project Cover" width="600"/>
+  <img src="BrandingImages/MongoDB_Readme_CoverImage2.png" alt="Project Cover" width="600"/>
 </p>
 
 This project demonstrates the use of web scraping techniques to collect and analyze data from various Mars-related sources, leveraging MongoDB for data storage. The project was built using Python libraries like BeautifulSoup, Splinter, and Pandas to scrape key information about Mars.

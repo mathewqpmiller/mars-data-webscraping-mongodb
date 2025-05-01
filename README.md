@@ -105,6 +105,14 @@ hemisphere_image_urls = [
     {"title": "Cerberus Hemisphere", "img_url": "..."},
     {"title": "Schiaparelli Hemisphere", "img_url": "..."},
     {"title": "Syrtis Major Hemisphere", "img_url": "..."},
+
+    # https://astrogeology.usgs.gov/search/map/
+    # https://astrogeology.usgs.gov/search/map/mars-viking-global-products
+
+    # https://astrogeology.usgs.gov/search/map/syrtis_major_hemisphere_enhanced
+    # https://astrogeology.usgs.gov/search/map/cerberus_hemisphere_enhanced
+    # https://astrogeology.usgs.gov/search/map/valles_marineris_hemisphere_enhanced
+    # https://astrogeology.usgs.gov/search/map/schiaparelli_hemisphere_enhanced
 ]
 ```
 

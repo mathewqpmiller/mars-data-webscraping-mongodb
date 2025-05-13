@@ -1,4 +1,5 @@
-from scrape_mars import scrape_nasa_news
+from scrape_mars import scrape
 
-result = scrape_nasa_news()
-print(response.text)
+mars_data = scrape()
+for key, value in mars_data.items():
+    print(f"\n{key.upper()}:\n{value}")

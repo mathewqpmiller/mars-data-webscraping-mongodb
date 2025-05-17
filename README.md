@@ -4,60 +4,56 @@
 </p>
 
 
-This project demonstrates the use of web scraping techniques to collect and analyze data from various Mars-related sources, leveraging MongoDB for data storage. The project was built using Python libraries like BeautifulSoup, Splinter, and Pandas to scrape key information about Mars.
+# Mars Web Scraping Project
 
-## What to Look For in a Good Web Scraping Target:
-Publicly accessible (no login required)
-Stable HTML structure
-No major anti-scraping protection (e.g., heavy JavaScript rendering)
-Content-rich (articles, datasets, tables, etc.)
+This project demonstrates the use of **web scraping** techniques to collect and organize Mars-related data from multiple public sources. Using Python tools such as `BeautifulSoup`, `Splinter`, and `Pandas`, the data is scraped, cleaned, and stored in a **MongoDB** database. The final dataset serves as the foundation for a web-based dashboard built with **Flask**. This project is part of a structured approach to developing, documenting, and sharing high-quality data analytics work. Each project is designed with two core goals in mind: **to educate** and **to inspire**. The process is broken into logical phases to ensure clarity, scalability, and consistent quality.
 
-### Popular Alternatives for Web Scraping Projects:
-Here are a few beginner-friendly sites that are often used for scraping practice:
-#### Books to Scrape
-Great for scraping product listings, prices, and ratings.
-No JavaScript, clean layout.
-Popular for e-commerce-style scraping.
-#### Quotes to Scrape
-Simple layout with quotes and authors.
-Designed for practice.
-Easy pagination and search functions.
-#### IMDB (Top 250 Movies)
-You can scrape movie titles, ranks, ratings.
-More challenging due to structure but doable.
-Use with care; follow IMDB’s robots.txt.
-#### Real Python Blog
-Can scrape recent articles, titles, and summaries.
-Good for educational content and blog-style structure.
-#### Hacker News
-Lightweight and perfect for scraping tech headlines and vote counts.
-Static site with minimal styling.
+### Objectives
+- Apply real-world data skills such as scraping, transformation, visualization, and deployment.
+- Produce content that explains the *how* and *why* behind the work for others in the community.
 
-1. Markdown Cells: Use markdown cells to write descriptions, explanations, and comments as you progress through the project. This helps make your notebook more readable and organized.
-2. Testing and Debugging: You can test different parts of the project in separate cells. For example, test the request, check for redirects, inspect the raw HTML, etc. Then, debug it step by step.
-3. Visualizing Data: Once you extract and clean your data, you can use libraries like matplotlib, seaborn, or plotly to visualize any data or trends. You can create different cells for the visualization portion of the project.
-4. Creating the Web App: Once your scraping is working fine, you can use frameworks like Flask or Dash to build your web app within the same notebook environment.
 
-Example Notebook Structure:
-Cell 1: Import Libraries (requests, BeautifulSoup)
-Cell 2: Define the scrape_nasa_news() function
-Cell 3: Call the function to scrape and display the data
-Cell 4: Process or Clean the scraped data if needed
-Cell 5: Visualize or perform additional analyses
-Cell 6: Add Flask/Dash code for the web app (when ready)
+## Project Objectives
+- Scrape data from multiple sources (news, images, facts, hemispheres)
+- Store results in a NoSQL database (MongoDB)
+- Build a structured pipeline with modular Python scripts
+- Visualize data via a Flask-powered dashboard
 
-By structuring your project in Jupyter Notebook this way, you can keep the workflow smooth and easy to debug.
+## Characteristics of a Good Scraping Target
+- Publicly accessible (no login/auth required)
+- Static and stable HTML structure
+- Minimal JavaScript rendering
+- Content-rich (articles, tables, images)
 
-Part 1: Scraping
-Write and test scraping code for:
-NASA Mars News – news_title, news_p
-JPL Featured Image – featured_image_url
-Mars Facts – convert table to HTML string
-Mars Hemispheres – list of dicts: {"title": ..., "img_url": ...}
-Use Splinter, BeautifulSoup, and Pandas in a Jupyter Notebook.
+## Alternative Beginner-Friendly Scraping Sites
+| Site                | Use Case                                  |
+|---------------------|--------------------------------------------|
+| Books to Scrape     | E-commerce-style listings and prices       |
+| Quotes to Scrape    | Pagination, quotes, and author info        |
+| IMDB (Top 250)      | Movie titles, ranks, ratings               |
+| Real Python Blog    | Blog scraping: titles, summaries, dates    |
+| Hacker News         | Headlines and vote counts                  |
+
+## Recommended Notebook Workflow
+1. **Imports**: Load core libraries (requests, BeautifulSoup, etc.)
+2. **Scraping Functions**: Define and test one function per target
+3. **Debug and Inspect**: Check raw HTML, element tags, class names
+4. **Process Data**: Use Pandas for tables and data cleanup
+5. **Optional Visualizations**: Add plots using matplotlib/seaborn
+6. **Web Integration**: Build a Flask app to serve scraped content
+
+This structure ensures modular development, reusability, and a clear path from raw data to live presentation.
+
+## Data Sources
+- NASA Mars News
+- JPL Featured Space Image
+- Mars Facts Table
+- Mars Hemispheres (USGS)
+
+## Phase 1: Web Scraping & Data Preparation (Notebook Development)
+This phase focuses on building and debugging the scraping logic using a Jupyter Notebook. Each target source is handled individually to ensure accurate data extraction and transformation.
 
 ## Step 1: Scraping the Latest NASA Mars News
-
 To begin this project, I used web scraping techniques to collect the most recent Mars-related news from [NASA’s Mars News site](https://redplanetscience.com). The goal of this step was to extract both the **headline** and a **teaser paragraph** from the top article on the homepage.
 
 ### Tools Used
@@ -80,8 +76,9 @@ The scraper successfully returns:
 
 This scraped content becomes the first component of the unified Mars data dictionary later inserted into MongoDB and rendered in the final Flask web app.
 
-## Step 2: JPL Featured Mars Image
+---
 
+## Step 2: JPL Featured Mars Image
 In this step, I scraped the **current featured Mars image** from the [Jet Propulsion Laboratory (JPL) Space Images site](https://spaceimages-mars.com/). The objective was to retrieve the full-resolution URL of the featured image that is visually highlighted on the homepage.
 
 ### Tools Used
@@ -99,8 +96,9 @@ In this step, I scraped the **current featured Mars image** from the [Jet Propul
 ### Outcome
 The scraper returns the **full URL** of the currently featured Mars image. This image is later used as a key visual asset in the final web dashboard.
 
-## Step 3: Mars Facts Table
+---
 
+## Step 3: Mars Facts Table
 This step involved scraping a comparative facts table about Mars and Earth from the [Galaxy Facts website](https://galaxyfacts-mars.com/). The goal was to transform tabular data into an HTML format for embedding later in the Flask app.
 
 ### Tools Used
@@ -117,8 +115,9 @@ This step involved scraping a comparative facts table about Mars and Earth from 
 ### Outcome
 The final output is a clean, responsive HTML string of the Mars–Earth comparison table, ready to be stored in MongoDB and rendered dynamically via Flask.
 
-## Step 4: Mars Hemispheres
+---
 
+## Step 4: Mars Hemispheres
 This step focused on scraping **high-resolution images and titles** for each of Mars' four hemispheres from the [USGS Astrogeology site](https://marshemispheres.com/).
 
 ### Tools Used
@@ -140,23 +139,42 @@ The final output is a list of dictionaries containing:
 
 This data is later stored in MongoDB and integrated into the dashboard interface.
 
+## Phase 2: Production Pipeline (Script + MongoDB + Flask)
+This phase moves the code into production-ready Python scripts. It includes database integration and building a web application to present the data.
 
-Part 2: Web App with Flask + MongoDB
-Move scraping logic into a Python script scrape_mars.py with a function called scrape().
-Set up Flask app with:
-/scrape route → runs the function and saves to MongoDB
-/ route → loads data from Mongo and renders index.html
-Display all data in your HTML template.
+### Step 1: Create `scrape_mars.py`
 
-## Step 2 - MongoDB and Flask Application
+**Tools Used:**
+- Python
+- Jupyter Notebook (initial logic)
+- Standard libraries (time, datetime)
+- Custom functions for scraping
 
-Use MongoDB with Flask templating to create a new HTML page that displays all of the information that was scraped from the URLs above.
+**Key Steps:**
+- Transferred finalized scraping logic into a Python script.
+- Defined a `scrape_all()` function that calls each scrape module.
+- Returned results in a unified dictionary.
 
-* Start by converting your Jupyter notebook into a Python script called `scrape_mars.py` with a function called `scrape` that will execute all of your scraping code from above and return one Python dictionary containing all of the scraped data.
+**Outcome:**
+- Created a reusable script to be triggered by the Flask app.
+- Modular design allows for independent updates to scraping logic.
 
-* Next, create a route called `/scrape` that will import your `scrape_mars.py` script and call your `scrape` function.
+---
 
-  * Store the return value in Mongo as a Python dictionary.
+### Step 2: Integrate MongoDB for Storage
+
+**Tools Used:**
+- MongoDB (local instance via Compass)
+- `pymongo` for Python-MongoDB interface
+
+**Key Steps:**
+- Connected to a local MongoDB database (`mars_db`).
+- Inserted scraped data into a `mars` collection.
+- Used `.update_one()` with `upsert=True` to replace old data.
+
+**Outcome:**
+- Enabled persistent storage of scraped Mars data.
+- Prepared backend for integration with Flask app.
 
 * Create a root route `/` that will query your Mongo database and pass the mars data into an HTML template to display the data.
 

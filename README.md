@@ -56,65 +56,90 @@ Mars Facts – convert table to HTML string
 Mars Hemispheres – list of dicts: {"title": ..., "img_url": ...}
 Use Splinter, BeautifulSoup, and Pandas in a Jupyter Notebook.
 
-### NASA Mars News
+## Step 1: Scraping the Latest NASA Mars News
 
-* Scrape the [NASA Mars News Site](https://mars.nasa.gov/news/) and collect the latest News Title and Paragraph Text. Assign the text to variables that you can reference later.
+To begin this project, I used web scraping techniques to collect the most recent Mars-related news from [NASA’s Mars News site](https://redplanetscience.com). The goal of this step was to extract both the **headline** and a **teaser paragraph** from the top article on the homepage.
 
-```python
-# Example:
-news_title = "NASA's Next Mars Mission to Investigate Interior of Red Planet"
+### Tools Used
+- Python
+- BeautifulSoup for parsing HTML
+- Selenium for browser automation
+- ChromeDriver to simulate browser interactions
 
-news_p = "Preparation of NASA's next spacecraft to Mars, InSight, has ramped up this summer, on course for launch next May from Vandenberg Air Force Base in central California -- the first interplanetary launch in history from America's West Coast."
-```
+### Key Steps
+1. Launched a browser session using Selenium.
+2. Navigated to the NASA Mars News site.
+3. Waited for the content to fully load.
+4. Parsed the HTML with BeautifulSoup.
+5. Located the first news title and paragraph using class selectors.
 
-### JPL Mars Space Images - Featured Image
+### Outcome
+The scraper successfully returns:
+- The **latest news title** (e.g., *NASA's Perseverance Rover Begins the Hunt for Ancient Life*).
+- A short **teaser summary** of the article.
 
-* Visit the url for JPL Featured Space Image [here](https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/index.html).
+This scraped content becomes the first component of the unified Mars data dictionary later inserted into MongoDB and rendered in the final Flask web app.
 
-* Use splinter to navigate the site and find the image url for the current Featured Mars Image and assign the url string to a variable called `featured_image_url`.
+## Step 2: JPL Featured Mars Image
 
-* Make sure to find the image url to the full size `.jpg` image.
+In this step, I scraped the **current featured Mars image** from the [Jet Propulsion Laboratory (JPL) Space Images site](https://spaceimages-mars.com/). The objective was to retrieve the full-resolution URL of the featured image that is visually highlighted on the homepage.
 
-* Make sure to save a complete url string for this image.
+### Tools Used
+- Python
+- BeautifulSoup
+- Splinter (browser automation layer built on top of Selenium)
 
-```python
-# Example:
-featured_image_url = 'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/image/featured/mars2.jpg'
-```
+### Key Steps
+1. Launched a browser session using Splinter.
+2. Visited the JPL Mars Space Images site.
+3. Parsed the HTML content using BeautifulSoup.
+4. Located the featured image thumbnail within a specific `img` tag.
+5. Extracted the `src` attribute and constructed the absolute URL.
 
-### Mars Facts
+### Outcome
+The scraper returns the **full URL** of the currently featured Mars image. This image is later used as a key visual asset in the final web dashboard.
 
-* Visit the Mars Facts webpage [here](https://space-facts.com/mars/) and use Pandas to scrape the table containing facts about the planet including Diameter, Mass, etc.
+## Step 3: Mars Facts Table
 
-* Use Pandas to convert the data to a HTML table string.
+This step involved scraping a comparative facts table about Mars and Earth from the [Galaxy Facts website](https://galaxyfacts-mars.com/). The goal was to transform tabular data into an HTML format for embedding later in the Flask app.
 
-### Mars Hemispheres
+### Tools Used
+- Python
+- Pandas
+- BeautifulSoup (implicitly, via `read_html`)
 
-* Visit the USGS Astrogeology site [here](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars) to obtain high resolution images for each of Mar's hemispheres.
+### Key Steps
+1. Utilized Pandas’ `read_html()` method to scrape all HTML tables from the site.
+2. Selected the first table, which compares Mars and Earth data.
+3. Renamed columns and set the description column as the index.
+4. Converted the cleaned DataFrame into an HTML table string using `.to_html()`.
 
-* You will need to click each of the links to the hemispheres in order to find the image url to the full resolution image.
+### Outcome
+The final output is a clean, responsive HTML string of the Mars–Earth comparison table, ready to be stored in MongoDB and rendered dynamically via Flask.
 
-* Save both the image url string for the full resolution hemisphere image, and the Hemisphere title containing the hemisphere name. Use a Python dictionary to store the data using the keys `img_url` and `title`.
+## Step 4: Mars Hemispheres
 
-* Append the dictionary with the image url string and the hemisphere title to a list. This list will contain one dictionary for each hemisphere.
+This step focused on scraping **high-resolution images and titles** for each of Mars' four hemispheres from the [USGS Astrogeology site](https://marshemispheres.com/).
 
-```python
-# Example:
-hemisphere_image_urls = [
-    {"title": "Valles Marineris Hemisphere", "img_url": "..."},
-    {"title": "Cerberus Hemisphere", "img_url": "..."},
-    {"title": "Schiaparelli Hemisphere", "img_url": "..."},
-    {"title": "Syrtis Major Hemisphere", "img_url": "..."},
+### Tools Used
+- Python
+- BeautifulSoup
+- Splinter
 
-    # https://astrogeology.usgs.gov/search/map/
-    # https://astrogeology.usgs.gov/search/map/mars-viking-global-products
+### Key Steps
+1. Visited the main page and extracted links to each hemisphere’s detail page.
+2. Iterated through the pages using Splinter.
+3. On each page, parsed the HTML with BeautifulSoup.
+4. Retrieved the title and full-resolution image URL from the downloads section.
+5. Stored each hemisphere’s data in a dictionary and appended to a list.
 
-    # https://astrogeology.usgs.gov/search/map/syrtis_major_hemisphere_enhanced
-    # https://astrogeology.usgs.gov/search/map/cerberus_hemisphere_enhanced
-    # https://astrogeology.usgs.gov/search/map/valles_marineris_hemisphere_enhanced
-    # https://astrogeology.usgs.gov/search/map/schiaparelli_hemisphere_enhanced
-]
-```
+### Outcome
+The final output is a list of dictionaries containing:
+- `title`: Name of the hemisphere
+- `img_url`: Link to the high-resolution image
+
+This data is later stored in MongoDB and integrated into the dashboard interface.
+
 
 Part 2: Web App with Flask + MongoDB
 Move scraping logic into a Python script scrape_mars.py with a function called scrape().

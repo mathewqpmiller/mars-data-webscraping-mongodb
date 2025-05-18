@@ -1,3 +1,30 @@
-<h1>{{ mars.news_title }}</h1>
-<p>{{ mars.news_paragraph }}</p>
-<img src="{{ mars.featured_image_url }}" alt="JPL Featured Image">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mission to Mars</title>
+</head>
+<body>
+    <h1>{{ mars.news_title }}</h1>
+    <p>{{ mars.news_paragraph }}</p>
+
+    <h2>Featured Image</h2>
+    <img src="{{ mars.featured_image_url }}" alt="JPL Featured Image" style="width:600px;">
+
+    <h2>Mars Facts</h2>
+    <div>
+        {{ mars.mars_facts | safe }}
+    </div>
+
+    <h2>Mars Hemispheres</h2>
+    <ul>
+        {% for hemisphere in mars.hemispheres %}
+        <li>
+            <h3>{{ hemisphere.title }}</h3>
+            <img src="{{ hemisphere.img_url }}" alt="{{ hemisphere.title }}" style="width:300px;">
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+

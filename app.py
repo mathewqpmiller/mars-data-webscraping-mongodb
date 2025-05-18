@@ -13,7 +13,7 @@ mongo = PyMongo(app)
 def index():
     # Retrieve Mars data from MongoDB
     mars_data = mongo.db.mars_collection.find_one()
-    
+    print(mars_data)  # <- Debugging line
     # Pass the data to the index.html template
     return render_template("index.html", mars=mars_data)
 

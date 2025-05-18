@@ -5,7 +5,7 @@ def load_to_mongo():
     # Connect to MongoDB
     client = MongoClient("mongodb://localhost:27017/")
     db = client.mars_db  # Create/use a database called 'mars_db'
-    collection = db.mars_data  # Create/use a collection called 'mars_data'
+    collection = db.mars_collection  # Create/use a collection called 'mars_data'
 
     # Clear existing data to prevent duplicates
     collection.delete_many({})

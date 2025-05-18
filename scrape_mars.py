@@ -93,7 +93,10 @@ def scrape():
             title_element = driver.find_element(By.CLASS_NAME, "title")
             title = title_element.text.strip()
             image_element = driver.find_element(By.CLASS_NAME, "wide-image")
-            image_url = image_element.get_attribute("src")
+            relative_url = image_element.get_attribute("src")
+            base_url = "https://astrogeology.usgs.gov"
+            image_url = base_url + relative_url if relative_url.startswith("/") else relative_url
+
             return title, image_url
         except Exception as e:
             print(f"Error extracting data from {url}: {e}")

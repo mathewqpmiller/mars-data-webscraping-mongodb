@@ -16,15 +16,15 @@
         {{ mars.mars_facts | safe }}
     </div>
 
-    <h2>Mars Hemispheres</h2>
-    <ul>
+   <h2>Mars Hemispheres</h2>
+    <div class="row">
         {% for hemisphere in mars.hemispheres %}
-        <li>
-            <h3>{{ hemisphere.title }}</h3>
-            <img src="{{ hemisphere.img_url }}" alt="{{ hemisphere.title }}" style="width:300px;">
-        </li>
+        <div class="col-md-3 text-center">
+            <h5>{{ hemisphere.title }}</h5>
+            <img src="{{ hemisphere.image_url }}" alt="{{ hemisphere.title }}" class="img-fluid" style="max-height: 200px;">
+        </div>
         {% endfor %}
-    </ul>
+</div>
 </body>
 </html>
 

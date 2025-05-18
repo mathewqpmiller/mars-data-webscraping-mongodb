@@ -1,0 +1,27 @@
+[{
+  "_id": {
+    "$oid": "68296e121fcb109e03df6f57"
+  },
+  "news_title": "NASA Observes First Visible-light Auroras at Mars",
+  "news_paragraph": "On March 15, 2024, near the peak of the current solar cycle, the Sun produced a solar flare and an accompanying coronal mass ejection (CME), a massive explosion of gas and magnetic energy that carries with it large amounts of…",
+  "featured_image_url": "https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/image/featured/mars1.jpg",
+  "mars_facts": "<table class=\"dataframe table table-striped\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Value</th>\n    </tr>\n    <tr>\n      <th>Description</th>\n      <th></th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>Equatorial Diameter:</th>\n      <td>6,792 km</td>\n    </tr>\n    <tr>\n      <th>Polar Diameter:</th>\n      <td>6,752 km</td>\n    </tr>\n    <tr>\n      <th>Mass:</th>\n      <td>6.39 × 10^23 kg (0.11 Earths)</td>\n    </tr>\n    <tr>\n      <th>Moons:</th>\n      <td>2 (Phobos &amp; Deimos)</td>\n    </tr>\n    <tr>\n      <th>Orbit Distance:</th>\n      <td>227,943,824 km (1.38 AU)</td>\n    </tr>\n    <tr>\n      <th>Orbit Period:</th>\n      <td>687 days (1.9 years)</td>\n    </tr>\n    <tr>\n      <th>Surface Temperature:</th>\n      <td>-87 to -5 °C</td>\n    </tr>\n    <tr>\n      <th>First Record:</th>\n      <td>2nd millennium BC</td>\n    </tr>\n    <tr>\n      <th>Recorded By:</th>\n      <td>Egyptian astronomers</td>\n    </tr>\n  </tbody>\n</table>",
+  "hemispheres": [
+    {
+      "title": "Valles Marineris Hemisphere Enhanced",
+      "image_url": "https://astrogeology.usgs.gov/ckan/dataset/daa79b13-f5e0-462e-8b7d-c94d9d2907c3/resource/ae080c7e-c4b7-460b-8059-0fa807aa8087/download/full.jpg"
+    },
+    {
+      "title": "Syrtis Major Hemisphere Enhanced",
+      "image_url": "https://astrogeology.usgs.gov/ckan/dataset/667ca880-a067-4745-8849-313b1cdf7836/resource/beba1688-450a-4a24-80d4-dce037cd26f2/download/full.jpg"
+    },
+    {
+      "title": "Cerberus Hemisphere Enhanced",
+      "image_url": "https://astrogeology.usgs.gov/ckan/dataset/5c986a8b-d66a-48d6-b0b9-7bebbfc9cc71/resource/a3444a47-74fa-4e75-b523-3d6dd6eee01e/download/full.jpg"
+    },
+    {
+      "title": "Schiaparelli Hemisphere Enhanced",
+      "image_url": "https://astrogeology.usgs.gov/ckan/dataset/f2f66fc0-a78f-4923-b8a5-2c54ad3e58ae/resource/1b51a7c8-c3db-457d-9012-fb3287b0e167/download/full.jpg"
+    }
+  ]
+}]

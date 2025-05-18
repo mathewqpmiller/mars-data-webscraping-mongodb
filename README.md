@@ -185,6 +185,27 @@ This phase moves the code into production-ready Python scripts. It includes data
 
 - - -
 
+### Step 3: Deploy Flask App to Load Data from MongoDB
+
+**Tools Used:**
+- Flask (Python web framework)  
+- Jinja2 (Flask templating engine)  
+- PyMongo (MongoDB-Flask bridge)
+
+**Key Steps:**
+- Established a Flask route (`/`) that queries the `mars` collection from the local MongoDB.
+- Passed the retrieved data as a dictionary to the `index.html` template using `render_template()`.
+- Built a dynamic HTML layout using Jinja2 templating syntax to display Mars data (news, facts, images, hemispheres).
+- Ensured the app gracefully handled cases where the database might be empty or missing fields.
+
+**Troubleshooting:**
+- Resolved a key issue with image output by correcting the `.html` file reference to the hemisphere placeholders in the template. This was essential for displaying images dynamically from the MongoDB content.
+
+**Outcome:**
+- Successfully rendered a dynamic web page powered by Flask and MongoDB.
+- Validated integration between scraping logic, data persistence, and frontend display.
+- Ready for styling improvements and optional deployment via Heroku.
+
 ## Step 3 - Submission
 
 To submit your work to BootCampSpot, create a new GitHub repository and upload the following:
@@ -203,34 +224,6 @@ To submit your work to BootCampSpot, create a new GitHub repository and upload t
   <img src="BrandingImages/MongDB_Readme_CoverImage2.png" alt="Project Cover" width="700"/>
 </p>
 
-This project demonstrates the use of web scraping techniques to collect and analyze data from various Mars-related sources, leveraging MongoDB for data storage. The project was built using Python libraries like BeautifulSoup, Splinter, and Pandas to scrape key information about Mars.
-
-## What to Look For in a Good Web Scraping Target:
-Publicly accessible (no login required)
-Stable HTML structure
-No major anti-scraping protection (e.g., heavy JavaScript rendering)
-Content-rich (articles, datasets, tables, etc.)
-
-### Popular Alternatives for Web Scraping Projects:
-Here are a few beginner-friendly sites that are often used for scraping practice:
-#### Books to Scrape
-Great for scraping product listings, prices, and ratings.
-No JavaScript, clean layout.
-Popular for e-commerce-style scraping.
-#### Quotes to Scrape
-Simple layout with quotes and authors.
-Designed for practice.
-Easy pagination and search functions.
-#### IMDB (Top 250 Movies)
-You can scrape movie titles, ranks, ratings.
-More challenging due to structure but doable.
-Use with care; follow IMDB’s robots.txt.
-#### Real Python Blog
-Can scrape recent articles, titles, and summaries.
-Good for educational content and blog-style structure.
-#### Hacker News
-Lightweight and perfect for scraping tech headlines and vote counts.
-Static site with minimal styling.
 
 1. Markdown Cells: Use markdown cells to write descriptions, explanations, and comments as you progress through the project. This helps make your notebook more readable and organized.
 2. Testing and Debugging: You can test different parts of the project in separate cells. For example, test the request, check for redirects, inspect the raw HTML, etc. Then, debug it step by step.
@@ -322,7 +315,7 @@ Set up Flask app with:
 / route → loads data from Mongo and renders index.html
 Display all data in your HTML template.
 
-## Step 2 - MongoDB and Flask Application
+### Step 2 - MongoDB and Flask Application
 
 Use MongoDB with Flask templating to create a new HTML page that displays all of the information that was scraped from the URLs above.
 
@@ -341,6 +334,26 @@ Use MongoDB with Flask templating to create a new HTML page that displays all of
 
 - - -
 
+### Step 3: Deploy Flask App to Load Data from MongoDB
+
+**Tools Used:**
+- Flask (Python web framework)  
+- Jinja2 (Flask templating engine)  
+- PyMongo (MongoDB-Flask bridge)
+
+**Key Steps:**
+- Established a Flask route (`/`) that queries the `mars` collection from the local MongoDB.
+- Passed the retrieved data as a dictionary to the `index.html` template using `render_template()`.
+- Built a dynamic HTML layout using Jinja2 templating syntax to display Mars data (news, facts, images, hemispheres).
+- Ensured the app gracefully handled cases where the database might be empty or missing fields.
+
+**Troubleshooting:**
+- Resolved a key issue with image output by correcting the `.html` file reference to the hemisphere placeholders in the template. This was essential for displaying images dynamically from the MongoDB content.
+
+**Outcome:**
+- Successfully rendered a dynamic web page powered by Flask and MongoDB.
+- Validated integration between scraping logic, data persistence, and frontend display.
+- Ready for styling improvements and optional deployment via Heroku.
 ## Step 3 - Submission
 
 To submit your work to BootCampSpot, create a new GitHub repository and upload the following:

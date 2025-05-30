@@ -13,7 +13,7 @@ Jinja2==3.1.6
 MarkupSafe==3.0.2
 packaging==25.0
 pycosat==0.6.3
-pycparser @ file:///tmp/build/80754af9/pycparser_1636541352034/work
+pycparser
 Pygments @ file:///opt/conda/conda-bld/pygments_1644249106324/work
 PyJWT @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_eec47dd9-fcc8-4e06-bbca-6138d11dbbcch6zasfc4/croots/recipe/pyjwt_1657544589510/work
 pymongo==4.12.1

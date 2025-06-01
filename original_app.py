@@ -1,6 +1,5 @@
-# HEROKU DEPLOY APP VERSION
+# STATIC HTML APP DEPLOY
 
-import os
 from flask import Flask, render_template
 from flask_pymongo import PyMongo
 
@@ -8,7 +7,7 @@ from flask_pymongo import PyMongo
 app = Flask(__name__)
 
 # Set up MongoDB connection (default is localhost)
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI", "mongodb://localhost:27017/mars_db")
+app.config["MONGO_URI"] = "mongodb://localhost:27017/mars_db"
 mongo = PyMongo(app)
 
 # Define home route

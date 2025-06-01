@@ -1,1 +1,1 @@
-web: gunicorn redplanetinsights:app
+web: gunicorn app:app
